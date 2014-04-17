@@ -14,50 +14,12 @@ html(lang='en')
       span.timer 60
 
     table
-      tr
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-      tr
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-      tr
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-      tr
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
-        td.container
-          .card
+      tbody
+        -for(var i=0; i < 4; i++)
+          tr
+            -for(var j=0; j < 5; j++)
+              td.container
+                .card
 
   script(src='./js/vendor/jquery-2.1.0.js')
   script(src='./js/source/main.js')
