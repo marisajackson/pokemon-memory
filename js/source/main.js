@@ -6,7 +6,6 @@
   var flipped = 0;
 
   function initialize(){
-    $('td > .card').append('<img src="./media/backcard.png" class="front">');
     $('#start').click(start);
     $('.card').click(flip);
   }
