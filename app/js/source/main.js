@@ -4,43 +4,63 @@
   $(document).ready(initialize);
 
   var flipped = 0;
+  var counter;
+  var started = 0;
+  var timer;
 
   function initialize(){
-    $('td > .card').append('<img src="./media/backcard.png" class="front">');
+    $('td > .card').append('<img src="./media/backCard.png" class="front">');
     $('#start').click(start);
-    $('.card').click(flip);
   }
 
   function flip(){
-    flipped++;
     $(this).addClass('rotate');
+    if ($('.rotate > img.back').length < 2){
+      flipped++;
+    } else {
+      flipped++;
+      checkMatch();
+    }
+
+  }
+
+  function checkMatch(){
     var $imgs = $('.rotate > img.back');
     var img1 = $imgs.eq(0).attr('src');
     var img2 = $imgs.eq(1).attr('src');
-
-    if (flipped === 2){
+    if (flipped > 1){
       if (img1 === img2){
         $('.rotate').addClass('match');
-        setTimeout(function(){
-          $('.rotate').removeClass('rotate');
-        }, 1000);
+        $('.rotate').removeClass('rotate');
       } else {
         setTimeout(function(){
           $('.card').removeClass('rotate');
-        }, 700);
+        }, 400);
       }
       flipped = 0;
+    }
+    winner();
+  }
+
+  function winner(){
+    if($('.match > img.back').length === 20){
+      clearInterval(timer);
+      alert('You won!');
     }
   }
 
   function start(){
-    addImages();
-    startTimer();
+    started++;
+    if (started < 2){
+      addImages();
+      startTimer();
+      $('.card').click(flip);
+    }
   }
 
   function startTimer(){
-    var counter = 60;
-    setInterval(function(){
+    counter = 60;
+    timer = setInterval(function(){
       counter--;
       if (counter > 0){
        $('.timer').text(counter);
