@@ -1,0 +1,104 @@
+body {
+  margin: auto;
+  text-align: center;
+  background: url('../media/bg.png');
+  background-attachment: fixed;
+}
+
+/*
+***********************
+* =top
+***********************
+*/
+
+#header {
+  margin: auto;
+}
+
+.time {
+  width: 200px;
+}
+
+#start {
+  height: 50px;
+  width: 150px;
+  font-size: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: blue;
+  display: block;
+  margin: auto;
+  margin-top: -40px;
+  margin-bottom: 5px;
+}
+
+#start:active {
+  background-color: red;
+}
+
+h2 {
+  text-size: 48px;
+  display: inline;
+}
+
+.timer {
+  font-family: 'Wallpoet', arial;
+  font-size: 50px;
+  width: 200px;
+}
+
+/*
+***********************
+* =table
+***********************
+*/
+
+table {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+/*
+***********************
+* =card
+***********************
+*/
+
+.container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  -webkit-perspective: 100;
+}
+
+.card, .front, .back {
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition-duration: .5s;
+  -webkit-transform-origin: center center;
+}
+
+.front, .back {
+  display: block;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+}
+
+.front {
+  z-index: 3;
+}
+
+.back {
+  -webkit-transform: rotateY(180deg);
+}
+
+.rotate, .match {
+  -webkit-transform: rotateY(180deg);
+}
