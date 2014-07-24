@@ -1,8 +1,48 @@
+@media screen and (max-height: 652px){
+  .title {width: 40%}
+}
+
 body {
   margin: auto;
   text-align: center;
   background: url('../media/bg.png');
   background-attachment: fixed;
+  background-size: contain;
+  font-family: 'Nunito', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.title {
+  margin-top: -.5%;
+}
+
+.winner h3, .loser h3 {
+  position: absolute;
+  margin-top: 25px;
+  // margin-left: 263px;
+  margin-left: 4%;
+  width: 205px;
+  // font-size: 40px;
+  font-size: 2.5em;
+}
+
+/*
+***********************
+* =structure
+***********************
+*/
+
+#container {
+  width: 75%;
+  margin: auto;
+}
+
+#game {
+  max-width: 512px;
+  margin: auto;
 }
 
 /*
@@ -10,10 +50,6 @@ body {
 * =top
 ***********************
 */
-
-#header {
-  margin: auto;
-}
 
 .time {
   width: 200px;
@@ -25,11 +61,18 @@ body {
   font-size: 30px;
   border-radius: 5px;
   border: none;
-  background-color: blue;
+  background-color: #016bba;
   display: block;
   margin: auto;
-  margin-top: -40px;
-  margin-bottom: 5px;
+  margin-top: -2%;
+  // margin-bottom: 5px;
+  border: 5px outset #050f5d;
+  color: #fecd01;
+}
+
+#start:active {
+  background-color: red;
+  border: 7px inset #050f5d;
 }
 
 h2 {
@@ -51,6 +94,7 @@ h2 {
 
 table {
   margin: auto;
+  margin-bottom: 10px;
 }
 
 /*
@@ -97,3 +141,180 @@ table {
 .rotate, .match {
   -webkit-transform: rotateY(180deg);
 }
+
+
+
+// body {
+//   margin: auto;
+//   text-align: center;
+//   background: url('../media/bg.png');
+//   background-attachment: fixed;
+//   background-size: cover;
+//   font-family: sans-serif;
+// }
+//
+// img {
+//   width: 100%;
+// }
+//
+// td {
+//   border: 4px solid black
+// }
+//
+// /*
+// ***********************
+// * =structure
+// ***********************
+// */
+//
+// #container {
+//   width: 75%;
+//   max-width: 512px;
+//   margin: auto;
+//
+//   // border: 4px solid orange;
+// }
+//
+// #game {
+//   height: 46%;
+//   width: 100%;
+//   margin: 1% 0;
+//   border-spacing: 0;
+//
+//   // border: 4px solid red;
+// }
+//
+// #controls {
+//   height: 10%;
+//   width: 100%;
+//   display: inline;
+//   margin: auto;
+//
+//   // border: 4px solid black;
+// }
+//
+// .title {
+//   height: 40%;
+//   width: 100%;
+// }
+//
+// /*
+// ***********************
+// * =controls
+// ***********************
+// */
+//
+// // #controls {
+// //   margin: auto;
+// // }
+//
+// // .time {
+// //   width: 200px;
+// // }
+//
+// #start {
+//   height: 50px;
+//   width: 150px;
+//   font-size: 1.875em;
+//   border-radius: 5px;
+//   border: 5px outset #000099;
+//   background-color: blue;
+//   display: block;
+//   margin: auto;
+//   margin-top: -6%;
+//   margin-bottom: 0.5%;
+// }
+//
+// #start:active {
+//   border: 7px inset #000099;
+// }
+//
+// h2 {
+//   text-size: 3em;
+//   display: inline;
+// }
+//
+// .timer, .score {
+//   font-family: 'Wallpoet', arial;
+//   font-size: 3.125em;
+//   // width: 200px
+//   width: 50%;
+// }
+//
+// // #controls {
+// //   width: 512px;
+// // }
+//
+// .timer-container, .score-container {
+//   width: 50%;
+//   display: inline-block;
+// }
+//
+// .score-container {
+//   text-align: right;
+// }
+//
+// .timer-container {
+//   text-align: left;
+// }
+//
+// /*
+// ***********************
+// * =card
+// ***********************
+// */
+//
+// // .container {
+// //   width: 100px;
+// //   height: 100px;
+// //   position: relative;
+// //   -webkit-perspective: 100;
+// // }
+//
+// .container {
+//   width: 20%;
+//   height: 25%;
+//   -webkit-perspective: 100;
+//
+//   // border: 4px solid black;
+// }
+//
+//
+// // td {
+// //   width: 20%
+// //   height: 20%;
+// //
+// //   // border: 4px solid black;
+// // }
+//
+// .front, .back {
+//   width: 100%;
+//   height: 100%;
+// }
+//
+// .card {
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   -webkit-transform-style: preserve-3d;
+//   -webkit-transition-duration: .5s;
+//   -webkit-transform-origin: center center;
+// }
+//
+// .front, .back {
+//   display: block;
+//   -webkit-backface-visibility: hidden;
+//   position: absolute;
+// }
+//
+// .front {
+//   z-index: 3;
+// }
+//
+// .back {
+//   -webkit-transform: rotateY(180deg);
+// }
+//
+// .rotate, .match {
+//   -webkit-transform: rotateY(180deg);
+// }

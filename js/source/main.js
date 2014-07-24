@@ -7,19 +7,10 @@
   var counter;
   var started = 0;
   var timer;
-  var score = 0;
 
   function initialize(){
     $('td > .card').append('<img src="./media/backCard.png" class="front">');
-    addImages();
     $('#start').click(start);
-    setHeight();
-    $(window).on('resize', setHeight);
-  }
-
-  function setHeight(){
-    var windowHeight = $(window).outerHeight();
-    $('#container').css('height', windowHeight);
   }
 
   function flip(){
@@ -41,7 +32,6 @@
       if (img1 === img2){
         $('.rotate').addClass('match');
         $('.rotate').removeClass('rotate');
-        addMatchPoints();
       } else {
         setTimeout(function(){
           $('.card').removeClass('rotate');
@@ -52,25 +42,17 @@
     winner();
   }
 
-  function addMatchPoints(){
-    score += 10;
-    $('.score').text(score);
-  }
-
   function winner(){
     if($('.match > img.back').length === 20){
-      score += counter;
-      var win = '<div class=winner style="width: 100%"><h3>Nice Score!\n'+score+' points!</h3><img style="width:100%" src="media/win.png"></div>';
       clearInterval(timer);
-      $('.score').text(score);
-      $('#game').empty().append(win);
+      alert('You won!');
     }
   }
 
   function start(){
     started++;
     if (started < 2){
-      // addImages();
+      addImages();
       startTimer();
       $('.card').click(flip);
     }
@@ -82,20 +64,13 @@
       counter--;
       if (counter > 0){
        $('.timer').text(counter);
-       $('#start').text(counter);
      } else if(counter === 0) {
+       alert('GAME OVER!');
        $('.rotate').removeClass('rotate');
        $('.match').removeClass('match');
-       loser();
      }
 
      }, 1000);
-  }
-
-  function loser(){
-    var lose = '<div class=loser style="width: 100%"><h3>Try Again!\n'+score+' points!</h3><img style="width:90%" src="media/loser.png"></div>';
-    clearInterval(timer);
-    $('#game').empty().append(lose);
   }
 
   function addImages(){

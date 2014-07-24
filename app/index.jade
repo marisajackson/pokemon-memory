@@ -3,23 +3,30 @@ html(lang='en')
   head
     meta(charset='utf-8')
     title Pokemon Memory
-    link(href='http://fonts.googleapis.com/css?family=Wallpoet', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='./css/app.css')
   body
-    img(src="./media/title.png")
-
-    #header
+    #container
+      img.title(src="./media/title.png")
       button#start Start
-      h2 Time left:
-      span.timer 60
 
-    table
-      tbody
-        -for(var i=0; i < 4; i++)
-          tr
-            -for(var j=0; j < 5; j++)
-              td.container
-                .card
+      //- #controls
+      //-   button#start Start
+      //-   .timer-container
+      //-     h2 Time left:
+      //-     span.timer 60
+      //-   .score-container
+      //-     h2 Score:
+      //-     span.score 0
+
+      #game
+        table
+          tbody
+            -for(var i=0; i < 4; i++)
+              tr
+                -for(var j=0; j < 5; j++)
+                  td.container
+                    .card
 
   script(src='./js/vendor/jquery-2.1.0.js')
   script(src='./js/source/main.js')
