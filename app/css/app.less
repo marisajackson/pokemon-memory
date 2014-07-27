@@ -1,8 +1,51 @@
+@media screen and (max-height: 800px){
+  .title {width: 40%}
+}
+
 body {
   margin: auto;
   text-align: center;
   background: url('../media/bg.png');
   background-attachment: fixed;
+  background-size: contain;
+  font-family: 'Nunito', sans-serif;
+  // vertical-align: middle;
+}
+
+img {
+  width: 100%;
+}
+
+.title {
+  margin-top: -.5%;
+}
+
+.winner h3, .loser h3 {
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 4%;
+  width: 205px;
+  font-size: 2.5em;
+}
+
+.winner h3 {
+  font-size: 2em;
+}
+
+/*
+***********************
+* =structure
+***********************
+*/
+
+#container {
+  width: 75%;
+  margin: auto;
+}
+
+#game {
+  max-width: 512px;
+  margin: auto;
 }
 
 /*
@@ -10,10 +53,6 @@ body {
 * =top
 ***********************
 */
-
-#header {
-  margin: auto;
-}
 
 .time {
   width: 200px;
@@ -25,11 +64,18 @@ body {
   font-size: 30px;
   border-radius: 5px;
   border: none;
-  background-color: blue;
+  background-color: #016bba;
   display: block;
   margin: auto;
-  margin-top: -40px;
-  margin-bottom: 5px;
+  margin-top: -2%;
+  // margin-bottom: 5px;
+  border: 5px outset #050f5d;
+  color: #fecd01;
+}
+
+#start:active {
+  background-color: red;
+  border: 7px inset #050f5d;
 }
 
 #start:active {
@@ -101,4 +147,11 @@ table {
 
 .rotate, .match {
   -webkit-transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 400px){
+  .loser h3 {
+    font-size: 1.5em;
+    width: 150px;
+    }
 }

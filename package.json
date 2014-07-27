@@ -6,7 +6,8 @@
     "start": "node app.js"
   },
   "dependencies":{
-    "connect": "*"
+    "connect": "*",
+    "lodash":  "*"
   },
   "devDependencies":{
     "grunt"               : "*",
