@@ -1,3 +1,5 @@
+/* global _ */
+
 (function(){
   'use strict';
 
@@ -5,7 +7,7 @@
 
   var flipped = 0;
   var counter;
-  var started = 0;
+  var started = false;
   var timer;
   var score = 0;
 
@@ -15,6 +17,21 @@
     $('#start').click(start);
     setHeight();
     $(window).on('resize', setHeight);
+    preload();
+    $('#container').on('click', '.retry', refresh);
+  }
+
+  function refresh(){
+    window.location = '/';
+  }
+
+  function preload(){
+    var images = [];
+    var assets = ['./media/1.png', './media/2.png', './media/3.png', './media/4.png', './media/5.png', './media/6.png', './media/7.png', './media/8.png', './media/9.png', './media/loser.png', './media/win.png'];
+    for (var i = 0; i < assets.length; i++) {
+					images[i] = new Image();
+					images[i].src = assets[i];
+				}
   }
 
   function setHeight(){
@@ -62,14 +79,15 @@
       score += counter;
       var win = '<div class=winner style="width: 100%"><h3>Nice Score!\n'+score+' points!</h3><img style="width:100%" src="media/win.png"></div>';
       clearInterval(timer);
-      $('.score').text(score);
       $('#game').empty().append(win);
+      $('#start').addClass('retry');
+      $('#start').text('Retry?');
     }
   }
 
   function start(){
-    started++;
-    if (started < 2){
+    if (!started){
+      started = true;
       // addImages();
       startTimer();
       $('.card').click(flip);
@@ -96,25 +114,35 @@
     var lose = '<div class=loser style="width: 100%"><h3>Try Again!\n'+score+' points!</h3><img style="width:90%" src="media/loser.png"></div>';
     clearInterval(timer);
     $('#game').empty().append(lose);
+    $('#start').addClass('retry');
+    $('#start').text('Retry?');
   }
 
   function addImages(){
     var $tds = $('td > .card');
-    var array1 = [];
-    var array2 = [];
-    for (var i = 1; i <= 10; i++){
-      array1.push(i);
-      array2.push(i);
-    }
 
-    var numbers = array1.concat(array2);
 
-    numbers.sort(function(){
+    var array = _.range(1, 11);
+    var newArray = array.concat(array);
+    // console.log(newArray);
+    //
+    // var array1 = [];
+    // var array2 = [];
+    // for (var i = 1; i <= 10; i++){
+    //   array1.push(i);
+    //   array2.push(i);
+    // }
+    //
+    // var numbers = array1.concat(array2);
+    //
+    // console.log(numbers);
+
+    newArray.sort(function(){
       return 0.5 - Math.random();
     });
 
     for(var j = 0; j < $tds.length; j++){
-      $($tds[j]).append('<img src="./media/' + numbers[j] + '.png" class="back">');
+      $($tds[j]).append('<img src="./media/' + newArray[j] + '.png" class="back">');
     }
   }
 
