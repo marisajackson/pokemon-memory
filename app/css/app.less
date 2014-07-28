@@ -114,7 +114,7 @@ table {
   width: 100px;
   height: 100px;
   position: relative;
-  -webkit-perspective: 100;
+  perspective: 100;
 }
 
 .card, .front, .back {
@@ -126,14 +126,14 @@ table {
   width: 100%;
   height: 100%;
   position: relative;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition-duration: .5s;
-  -webkit-transform-origin: center center;
+  transform-style: preserve-3d;
+  transition-duration: .5s;
+  transform-origin: center center;
 }
 
 .front, .back {
   display: block;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
 }
 
@@ -142,11 +142,11 @@ table {
 }
 
 .back {
-  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .rotate, .match {
-  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 @media screen and (max-width: 400px){
